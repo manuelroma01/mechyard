@@ -1,0 +1,34 @@
+%h1 #{@battle_mech.code} #{@battle_mech.name}
+#notice
+  %p
+    = notice
+
+%p Mass: #{@battle_mech.mass}
+%p Manufacturer: #{@battle_mech.manufacturer}
+    
+%ul
+  %li
+    Chassis: #{@battle_mech.chassis}
+  %li
+    Power plant: #{@battle_mech.power_plant}
+  %li
+    Jump jets: #{@battle_mech.jump_jets}
+  %li
+    Armor: #{@battle_mech.armor}
+  %li
+    Communication system: #{@battle_mech.comm_system}
+  %li
+    Tracking & targeting system: #{@battle_mech.tt_system}
+
+%ul
+  %li
+    Cruising speed: #{@battle_mech.cruising_speed}
+  %li
+    Maximum speed: #{@battle_mech.maximum_speed}
+  %li
+    Jump capacity: #{@battle_mech.jump_capacity}
+    
+    
+= link_to 'Edit', edit_battle_mech_path(@battle_mech)
+||
+= link_to 'Back', battle_mechs_path

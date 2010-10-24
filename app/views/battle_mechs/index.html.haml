@@ -1,0 +1,31 @@
+%h1 BattleMech list
+
+%table
+  %tr
+    %th Model
+    %th Mass
+    %th Cruising speed
+    %th Maximum speed
+    %th Jump capacity
+    %th{:colspan => 3} Operations
+
+    - @battle_mechs.each do |battle_mech|
+      %tr
+        %td
+          =h battle_mech.code + ' ' + battle_mech.name
+        %td
+          =h battle_mech.mass.to_s + ' Tm'
+        %td
+          =h battle_mech.cruising_speed.to_s + ' km/h'
+        %td
+          =h battle_mech.maximum_speed.to_s + ' km/h'
+        %td
+          =h battle_mech.jump_capacity.to_s + ' m'
+        %td
+          = link_to 'Show', battle_mech
+        %td
+          = link_to 'Edit', edit_battle_mech_path(battle_mech)
+        %td
+          = link_to 'Destroy', battle_mech, :confirm => 'Are you sure?', :method => :delete
+
+= link_to 'New BattleMech', new_battle_mech_path

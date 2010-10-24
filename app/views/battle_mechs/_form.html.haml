@@ -1,0 +1,24 @@
+= semantic_form_for(@battle_mech) do |f|
+  = f.error_messages
+
+  = f.inputs :title => 'Overview' do
+    = f.input :code
+    = f.input :name
+    = f.input :mass
+    = f.input :manufacturer
+          
+  = f.inputs :title => 'Components' do
+    = f.input :chassis
+    = f.input :power_plant
+    = f.input :jump_jets
+    = f.input :armor
+    = f.input :comm_system, :label => 'Communications system'
+    = f.input :tt_system, :label => 'Tracking & targeting system'
+    
+  = f.inputs :title => 'Movement values' do
+    = f.input :cruising_speed
+    = f.input :maximum_speed
+    = f.input :jump_capacity
+  
+  = f.buttons do
+    = f.commit_button :label => 'Done'
