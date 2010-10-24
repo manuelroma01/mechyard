@@ -23,9 +23,6 @@ group :test, :development do
   gem 'launchy'
 end
 
-# solo en windows
-gem 'win32console'
-
 # Use unicorn as the web server
 # gem 'unicorn'
 
