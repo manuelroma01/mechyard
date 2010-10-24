@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100801162040) do
+ActiveRecord::Schema.define(:version => 20101024221321) do
 
   create_table "battle_mechs", :force => true do |t|
     t.string   "code",           :limit => 10, :null => false
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(:version => 20100801162040) do
     t.integer  "cruising_speed"
     t.integer  "maximum_speed"
     t.integer  "jump_capacity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "systems", :force => true do |t|
+    t.integer  "battle_mech_id"
+    t.integer  "system_type_id"
+    t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

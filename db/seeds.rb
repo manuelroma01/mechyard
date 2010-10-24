@@ -5,6 +5,11 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+# localizaciones:
+#   C => 1, TC => 2, TD => 3, TI => 4, TC(P) => 5, TD(P) => 6, TI(P) => 7
+#   BD => 9, BI => 10, PD => 11, PI => 12
+
 bm_valkyrie = BattleMech.create(
   :code => 'VLK-QA',
   :name => 'Valkyrie',
@@ -20,6 +25,22 @@ bm_valkyrie = BattleMech.create(
   :maximum_speed => 86,
   :jump_capacity => 150
 )
+bm_valkyrie_las_med_1 = System.create(
+  :battle_mech => bm_valkyrie,
+  :system_type_id => 1,
+  :location_id => 9
+)
+bm_valkyrie_amca2_1 = System.create(
+  :battle_mech => bm_valkyrie,
+  :system_type_id => 2,
+  :location_id => 12
+)
+bm_valkyrie_amca2ammo_1 = System.create(
+  :battle_mech => bm_valkyrie,
+  :system_type_id => 3,
+  :location_id => 4
+)
+
 
 bm_phoenix_hawk = BattleMech.create(
   :code => 'PXH-1',
@@ -60,7 +81,7 @@ bm_atlas = BattleMech.create(
   :armor => 'Durallex Heavy Special',
   :comm_system => 'Army Comm, Class 5',
   :tt_system => 'Army Comp. Type 29K',
-  :manufacturer => 'Na´ir, Hesperus, Quentin',
+  :manufacturer => 'Nair, Hesperus, Quentin',
   :cruising_speed => 32,
   :maximum_speed => 54
 )

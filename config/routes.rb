@@ -1,4 +1,6 @@
 Mechyard::Application.routes.draw do
+  resources :systems
+
   resources :battle_mechs
 
   # ruta inicial
