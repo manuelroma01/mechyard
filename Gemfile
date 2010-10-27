@@ -1,27 +1,34 @@
 source 'http://rubygems.org'
 
-gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'arel',  :git => 'git://github.com/rails/arel.git'
-
+gem 'rails'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'nifty-generators'
 gem 'haml'
-gem 'formtastic', :git => "http://github.com/justinfrench/formtastic.git", :branch => "rails3"
+gem 'formtastic'
 
-group :test, :development do
+group :development do
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'rspec'
+  gem 'webrat'
+end
+
+#group :test, :development do
   # para rspec
-  gem 'rspec','>=2.0.0.beta.5'
-  gem 'rspec-rails','>=2.0.0.beta.5', :require => 'rspec'
-  gem 'factory_girl'
+#  gem 'rspec','>=2.0.1'
+#  gem 'rspec-rails','>=2.0.0.beta.5', :require => 'rspec'
+#  gem 'factory_girl'
   
   # para cucumber
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'cucumber-rails'
-  gem 'cucumber'
-  gem 'spork'
-  gem 'launchy'
-end
+#  gem 'capybara'
+#  gem 'database_cleaner'
+#  gem 'cucumber-rails'
+#  gem 'cucumber'
+#  gem 'spork'
+#  gem 'launchy'
+#end
 
 # Use unicorn as the web server
 # gem 'unicorn'
