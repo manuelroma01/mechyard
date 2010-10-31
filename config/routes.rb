@@ -1,7 +1,9 @@
 Mechyard::Application.routes.draw do
+  # al modificar routes hay que reiniciar spork!
   get "pages/home"
   get "pages/contact"
   get "pages/about"
+  get "pages/help"
 
   resources :systems
   resources :battle_mechs
