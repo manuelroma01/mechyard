@@ -1,8 +1,8 @@
-!!!
 %html
   %head
-    %title MechYard 0.1
+    %title MechYard | #{@title}
     -# para que ciertos metodos hagan saltar al authenticity token
+    -# evitar cross-site request forgery
     = csrf_meta_tag
     
     -# css

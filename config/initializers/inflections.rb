@@ -10,6 +10,5 @@
 # end
 
 ActiveSupport::Inflector.inflections do |inflect|
- inflect.irregular 'battle mech', 'battle mechs'
- inflect.irregular 'battle_mech', 'battle_mechs'
+  inflect.irregular 'battle_mech', 'battle_mechs'
 end

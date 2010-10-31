@@ -2,6 +2,8 @@
 
 <table>
   <tr>
+    <th>Sistema</th>
+    <th>BattleMech</th>
     <th></th>
     <th></th>
     <th></th>
@@ -9,6 +11,8 @@
 
 <% @systems.each do |system| %>
   <tr>
+    <td><%= system.id %></td>
+    <td><%= system.battle_mech_id %></td>
     <td><%= link_to 'Show', system %></td>
     <td><%= link_to 'Edit', edit_system_path(system) %></td>
     <td><%= link_to 'Destroy', system, :confirm => 'Are you sure?', :method => :delete %></td>
