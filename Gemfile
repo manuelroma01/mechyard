@@ -11,8 +11,12 @@ group :development do
 end
 
 group :test do
-  gem 'rspec'
   gem 'webrat'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'autotest'
+  gem 'autotest-rails'
+  gem 'spork'
 end
 
 #group :test, :development do

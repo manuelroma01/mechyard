@@ -1,6 +1,11 @@
 Mechyard::Application.routes.draw do
-  resources :systems
+  # al modificar routes hay que reiniciar spork!
+  get "pages/home"
+  get "pages/contact"
+  get "pages/about"
+  get "pages/help"
 
+  resources :systems
   resources :battle_mechs
 
   # ruta inicial
@@ -55,7 +60,7 @@ Mechyard::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "static#home"
+  root :to => "pages#home"
 
   # See how all your routes lay out with "rake routes"
 
