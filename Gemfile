@@ -7,13 +7,13 @@ gem 'haml'
 gem 'formtastic'
 
 group :development do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '2.0.1'
 end
 
 group :test do
-  gem 'webrat'
-  gem 'rspec'
-  gem 'rspec-rails'
+  gem 'webrat', '0.7.1'
+  gem 'rspec', '2.0.1'
+  gem 'rspec-rails', '2.0.1'
   gem 'autotest'
   gem 'autotest-rails'
   gem 'spork'

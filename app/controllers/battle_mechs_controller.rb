@@ -24,6 +24,7 @@ class BattleMechsController < ApplicationController
   # GET /battle_mechs/new
   # GET /battle_mechs/new.xml
   def new
+    @title = "New BattleMech"
     @battle_mech = BattleMech.new
 
     respond_to do |format|

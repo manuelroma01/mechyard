@@ -4,17 +4,15 @@
     -# para que ciertos metodos hagan saltar al authenticity token
     -# evitar cross-site request forgery
     = csrf_meta_tag
-    
-    -# css
-    = stylesheet_link_tag("reset")
-    = stylesheet_link_tag("text")
-    = stylesheet_link_tag("960_24_col")
+
+    = render 'layouts/stylesheets'
 
     -# javascripts
     = javascript_include_tag :defaults, :cache => true
     
   %body
     .container_24
-      %h1 MechYard 0.1
-      = flash[:notice]
-      = yield
+      = render 'layouts/header'
+      %section.round
+        = yield
+      = render 'layouts/footer'
