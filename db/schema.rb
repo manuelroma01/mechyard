@@ -10,12 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101024221321) do
+ActiveRecord::Schema.define(:version => 20101107162902) do
 
   create_table "battle_mechs", :force => true do |t|
-    t.string   "code",           :limit => 10, :null => false
-    t.string   "name",           :limit => 30, :null => false
-    t.integer  "mass",                         :null => false
+    t.string   "code",           :limit => 10,                :null => false
+    t.string   "name",           :limit => 30,                :null => false
+    t.integer  "mass",                                        :null => false
     t.string   "chassis"
     t.string   "power_plant"
     t.string   "jump_jets"
@@ -23,12 +23,14 @@ ActiveRecord::Schema.define(:version => 20101024221321) do
     t.string   "comm_system"
     t.string   "tt_system"
     t.string   "manufacturer"
-    t.integer  "cruising_speed"
-    t.integer  "maximum_speed"
-    t.integer  "jump_capacity"
+    t.integer  "cruising_speed",               :default => 0
+    t.integer  "maximum_speed",                :default => 0
+    t.integer  "jump_capacity",                :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "battle_mechs", ["code"], :name => "index_battle_mechs_on_code", :unique => true
 
   create_table "systems", :force => true do |t|
     t.integer  "battle_mech_id"
