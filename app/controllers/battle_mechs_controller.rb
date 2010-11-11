@@ -43,14 +43,12 @@ class BattleMechsController < ApplicationController
   def create
     @battle_mech = BattleMech.new(params[:battle_mech])
 
-    respond_to do |format|
-      if @battle_mech.save
-        format.html { redirect_to(@battle_mech, :notice => 'BattleMech was successfully created.') }
-        format.xml  { render :xml => @battle_mech, :status => :created, :location => @battle_mech }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @battle_mech.errors, :status => :unprocessable_entity }
-      end
+    if @battle_mech.save
+      flash[:success] = "New BattleMech created"
+      redirect_to @battle_mech
+    else
+      @title = "New BattleMech"
+      render "new"
     end
   end
 
