@@ -1,5 +1,5 @@
 = semantic_form_for(@battle_mech) do |f|
-  = f.error_messages
+  = render :partial => 'shared/error_messages', :locals => { :object => f.object }
 
   = f.inputs :title => 'Overview' do
     = f.input :code

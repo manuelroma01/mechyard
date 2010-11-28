@@ -1,5 +1,7 @@
 %h1 BattleMech list
 
+= will_paginate
+
 %table
   %tr
     %th Model
@@ -26,6 +28,8 @@
         %td
           = link_to 'Edit', edit_battle_mech_path(battle_mech)
         %td
-          = link_to 'Destroy', battle_mech, :confirm => 'Are you sure?', :method => :delete
+          = link_to 'Delete', battle_mech, :method => :delete, :confirm => 'Que te lo cargas!', :title => "Delete #{battle_mech.code}"
+
+= will_paginate
 
 = link_to 'New BattleMech', new_battle_mech_path

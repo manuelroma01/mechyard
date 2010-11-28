@@ -2,23 +2,16 @@ class BattleMechsController < ApplicationController
   # GET /battle_mechs
   # GET /battle_mechs.xml
   def index
-    @battle_mechs = BattleMech.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @battle_mechs }
-    end
+    @title = "BattleMech list"
+    #@battle_mechs = BattleMech.all
+    @battle_mechs = BattleMech.paginate(:page => params[:page])
   end
 
   # GET /battle_mechs/1
   # GET /battle_mechs/1.xml
   def show
     @battle_mech = BattleMech.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @battle_mech }
-    end
+    @title = @battle_mech.code
   end
 
   # GET /battle_mechs/new
@@ -36,6 +29,7 @@ class BattleMechsController < ApplicationController
   # GET /battle_mechs/1/edit
   def edit
     @battle_mech = BattleMech.find(params[:id])
+    @title = "Edit BattleMech"
   end
 
   # POST /battle_mechs
@@ -57,26 +51,20 @@ class BattleMechsController < ApplicationController
   def update
     @battle_mech = BattleMech.find(params[:id])
 
-    respond_to do |format|
-      if @battle_mech.update_attributes(params[:battle_mech])
-        format.html { redirect_to(@battle_mech, :notice => 'Battle mech was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @battle_mech.errors, :status => :unprocessable_entity }
-      end
+    if @battle_mech.update_attributes(params[:battle_mech])
+      flash[:success] = "BattleMech updated."
+      redirect_to @battle_mech
+    else
+      @title = "Edit BattleMech"
+      render "edit"
     end
   end
 
   # DELETE /battle_mechs/1
   # DELETE /battle_mechs/1.xml
   def destroy
-    @battle_mech = BattleMech.find(params[:id])
-    @battle_mech.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(battle_mechs_url) }
-      format.xml  { head :ok }
-    end
+    BattleMech.find(params[:id]).destroy
+    flash[:success] = "BattleMech destroyed."
+    redirect_to(battle_mechs_path)
   end
 end
